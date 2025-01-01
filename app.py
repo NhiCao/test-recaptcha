@@ -17,7 +17,7 @@ def verify_recaptcha():
         'response': user_response['recaptchaResponse']
     })
     
-    return jsonify(res)
+    return res.content
     
     # return '<p>Hello, World!</p>'
 

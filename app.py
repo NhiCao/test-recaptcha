@@ -24,16 +24,22 @@ def hello_world():
 @app.route('/verify-recaptcha', methods=['POST'])
 def verify_recaptcha():
     recaptcha_response = request.form.get('recaptchaResponse')
-    print('=================recaptcha_response===================')
+    print('=================recaptcha_response===================', file=sys.stderr)
     print(recaptcha_response, file=sys.stderr)
-    print('====================================')
+    print('====================================', file=sys.stderr)
 
     if not recaptcha_response:
         return jsonify({'success': False, 'message': 'Missing reCAPTCHA response.'}), 400
 
+    print('=================1===================', file=sys.stderr)
+    print('====================================', file=sys.stderr)
+    
     secret_key = os.getenv('RECAPTCHA_SECRET')
     if not secret_key:
         return jsonify({'success': False, 'message': 'Secret key is not configured.'}), 500
+
+    print('=================2===================', file=sys.stderr)
+    print('====================================', file=sys.stderr)
 
     google_verify_url = 'https://www.google.com/recaptcha/api/siteverify'
     payload = {
@@ -42,6 +48,9 @@ def verify_recaptcha():
     }
     response = requests.post(google_verify_url, data=payload)
     verification = response.json()
+    
+    print('=================3===================', file=sys.stderr)
+    print('====================================', file=sys.stderr)
 
     if verification.get('success'):
         return jsonify({'success': True, 'message': 'Verification successful.'})

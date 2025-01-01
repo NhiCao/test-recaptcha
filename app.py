@@ -61,11 +61,12 @@ def verify_recaptcha():
         print('=================failure===================', file=sys.stderr)
         print(json.dumps(verification, indent=2), file=sys.stderr)
         print('====================================', file=sys.stderr)
-        return jsonify({
-            'success': False,
-            'message': 'Verification failed.',
-            'error_codes': verification.get('error-codes', [])
-        }), 400
+        # return jsonify({
+        #     'success': False,
+        #     'message': 'Verification failed.',
+        #     'error_codes': verification.get('error-codes', [])
+        # }), 400
+        return "thursday"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

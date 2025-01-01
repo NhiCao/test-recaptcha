@@ -13,13 +13,11 @@ def hello_world():
 def verify_recaptcha():
     user_response = request.json
     res = requests.post('https://www.google.com/recaptcha/api/siteverify', json={
-        'secret': os.environ['RECAPTCHA_SECRET'],
+        'secret': os.environ.get('RECAPTCHA_SECRET'),
         'response': user_response['recaptchaResponse']
     })
     
     return res.content
     
-    # return '<p>Hello, World!</p>'
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

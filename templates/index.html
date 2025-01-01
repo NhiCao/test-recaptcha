@@ -22,8 +22,8 @@
                 return;
             }
 
-            // Send the token to the server for verification
-            fetch('verify-recaptcha.php', {
+            // Send the token to your Python server for verification
+            fetch('/verify-recaptcha', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ recaptchaResponse }),
@@ -32,7 +32,7 @@
                 .then(data => {
                     if (data.success) {
                         alert("reCAPTCHA verified successfully!");
-                        // Proceed with further actions, like submitting the form
+                        // Proceed with form submission or further actions
                     } else {
                         alert(`Verification failed: ${data.message}`);
                     }

@@ -30,6 +30,8 @@
             })
                 .then(response => response.json())
                 .then(data => {
+                    console.log("=====================")
+                    console.log(data.success)
                     if (data.success) {
                         alert("reCAPTCHA verified successfully!");
                         // Proceed with form submission or further actions

@@ -1,3 +1,6 @@
+import requests
+import os
+
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
@@ -8,8 +11,13 @@ def hello_world():
 
 @app.route('/verify-recaptcha', methods=['POST'])
 def verify_recaptcha():
-    data = request.json
-    return jsonify(data)
+    user_response = request.json
+    res = requests.post('https://www.google.com/recaptcha/api/siteverify', json={
+        'secret': os.environ['RECAPTCHA_SECRET'],
+        'response': user_response['recaptchaResponse']
+    })
+    
+    return jsonify(res)
     
     # return '<p>Hello, World!</p>'
 

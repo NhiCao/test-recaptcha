@@ -1,20 +1,21 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>reCAPTCHA demo: Simple page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA Test</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-
 <body>
-    <form action="?" method="POST">
+    <h1>Google reCAPTCHA Test</h1>
+    <form id="recaptcha-form" method="POST">
         <div class="g-recaptcha" data-sitekey="6LddaKsqAAAAAIZ_sz7jhP0jTjtrSTnrUgqDjpD6"></div>
-        <br />
-        <input type="submit" value="Submit" onclick="submitForm()" />
+        <br>
+        <button type="button" onclick="submitForm()">Submit</button>
     </form>
 
     <script>
         function submitForm() {
-            // Get the reCAPTCHA response token
             const recaptchaResponse = grecaptcha.getResponse();
 
             if (!recaptchaResponse) {
@@ -22,28 +23,23 @@
                 return;
             }
 
-            // Send the token to the server for verification
-            fetch('verify-recaptcha.php', {
+            fetch('/verify-recaptcha', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ recaptchaResponse }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ 'g-recaptcha-response': recaptchaResponse })
             })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
                         alert("reCAPTCHA verified successfully!");
-                        // Proceed with further actions, like submitting the form
                     } else {
                         alert(`Verification failed: ${data.message}`);
                     }
                 })
                 .catch(error => {
-                    console.error("Error:", error);
                     alert("An error occurred. Please try again later.");
                 });
         }
-
     </script>
 </body>
-
 </html>

@@ -1,13 +1,49 @@
 <html>
-  <head>
+
+<head>
     <title>reCAPTCHA demo: Simple page</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <form action="?" method="POST">
-      <div class="g-recaptcha" data-sitekey="6Le9QKsqAAAAADeSzcp4PtIhdZRUPLek5Bu8zUog"></div>
-      <br/>
-      <input type="submit" value="Submit">
+        <div class="g-recaptcha" data-sitekey="6Le9QKsqAAAAADeSzcp4PtIhdZRUPLek5Bu8zUog"></div>
+        <br />
+        <input type="submit" value="Submit" onclick="submitForm()" />
     </form>
-  </body>
+
+    <script>
+        function submitForm() {
+            // Get the reCAPTCHA response token
+            const recaptchaResponse = grecaptcha.getResponse();
+
+            if (!recaptchaResponse) {
+                alert("Please complete the reCAPTCHA.");
+                return;
+            }
+
+            // Send the token to the server for verification
+            fetch('verify-recaptcha.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ recaptchaResponse }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("reCAPTCHA verified successfully!");
+                        // Proceed with further actions, like submitting the form
+                    } else {
+                        alert(`Verification failed: ${data.message}`);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred. Please try again later.");
+                });
+        }
+
+    </script>
+</body>
+
 </html>

@@ -25,8 +25,12 @@
             // Send the token to your Python server for verification
             fetch('/verify-recaptcha', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({ recaptchaResponse })
+                // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                // body: new URLSearchParams({ recaptchaResponse })
+                body: JSON.stringify(recaptchaResponse),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
             })
                 .then(response => response.json())
                 .then(data => {

@@ -53,8 +53,12 @@ def verify_recaptcha():
     print('====================================', file=sys.stderr)
 
     if verification.get('success'):
+        print('=================success===================', file=sys.stderr)
+        print('====================================', file=sys.stderr)
         return jsonify({'success': True, 'message': 'Verification successful.'})
     else:
+        print('=================failure===================', file=sys.stderr)
+        print('====================================', file=sys.stderr)
         return jsonify({
             'success': False,
             'message': 'Verification failed.',

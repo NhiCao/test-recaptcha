@@ -15,8 +15,8 @@
     <script>
         function submitForm() {
             // Get the reCAPTCHA response token
-            const recaptchaResponse = grecaptcha.getResponse();
-            console.log(recaptchaResponse)
+            // const recaptchaResponse = grecaptcha.getResponse();
+            console.log(grecaptcha.getResponse())
 
             if (!recaptchaResponse) {
                 alert("Please complete the reCAPTCHA.");
@@ -28,7 +28,9 @@
                 method: 'POST',
                 // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 // body: new URLSearchParams({ recaptchaResponse })
-                body: JSON.stringify(recaptchaResponse),
+                body: JSON.stringify({
+                    recaptchaResponse: grecaptcha.getResponse()
+                }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8"
                 }

@@ -16,6 +16,7 @@
         function submitForm() {
             // Get the reCAPTCHA response token
             const recaptchaResponse = grecaptcha.getResponse();
+            console.log(recaptchaResponse)
 
             if (!recaptchaResponse) {
                 alert("Please complete the reCAPTCHA.");

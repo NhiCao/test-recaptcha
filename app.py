@@ -24,17 +24,11 @@ def hello_world():
 
 @app.route('/verify-recaptcha', methods=['POST'])
 def verify_recaptcha():
-    arguments = request.args
-    print('*=================arguments===================*', file=sys.stderr)
-    print(json.dumps(arguments, sort_keys=True, indent=4))
-    print('*====================================*', file=sys.stderr)
-    recaptcha_response = request.form.get('recaptchaResponse')
+    recaptcha_response = request.form.get('g-recaptcha-response')
     print('*=================recaptcha_response===================*******', file=sys.stderr)
     print(recaptcha_response, file=sys.stderr)
     print('*====================================*', file=sys.stderr)
     
-    # return "hello"
-
     if not recaptcha_response:
         return jsonify({'success': False, 'message': 'Missing reCAPTCHA response.'}), 400
 

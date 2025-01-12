@@ -3,6 +3,7 @@
 <head>
     <title>reCAPTCHA demo: Simple page</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -19,38 +20,43 @@
             // const recaptchaResponse = '03AFcWeA4jmaGg8QfabCNO-p7E-EvTUDC9V4JDmHtBNh2s6QDDv1_Hsjfr9Ad5dytzDBn-KHLEdVcwafE5OwRWPtTYW7FuJeUR3UMbKPjBH14KJGR0Pe9xFFz0zmejtayOjc2L-7s1Ui2a3BzbVs-zj7OMi-5vIVS0aY6HIDIVN2bwf6zn1bIXVLCN8uug3beLYetMvk7A3IKSlAEoliU29oGPkPGgNTnhxxnh1XaTWVo8KcJ_RQNMxp3Mf32qyBpAFoNOQACCoDi-EVKatD8xCY98PafuLGdPb_ylkUlaKs7ZAZNHgKKSfwhujGp-V5u5ntZ4BNlKeWzY__jjv5kshEpENaZCrtfo1GNoZsb7UU5Axws3nwP5gg4kNtsbUAoC0Ffj1cqbzXrAtJ-mVzR7gQlAefqIpvjevtS2NlTs5NThG2MeOG3e_PuFLPe5wN9T29SaWsSpJpCYl8gpYQ9zazn8D2kF209mDGTGvzDBWMAFhMQpzzd6CiNpZLzs26PnNXbTyPw-bBU8FxUBbx47bfhnpdDDdiTcXO1YzpxgaTaeQGZdKtX9bFT2-Ol-g0hTJRyVw39CdjrI9nVYiMniYxvru6oR2fhY17oUfc8oQ5rZxIMGJKZwB9ifqRE754LD2k8FINn6vk-642xVd-m6ILtL80MjDYvkAu7PIDIzjr5uF9NIxVHfWnr9xK1ifeFlQjWQ8dUf_N7uGNOKA060GCK-8xcZoynILk-AWo0lKTNJfx2nOShVZKCqWLli2KqeRsUjwXJGU4ZcVmmlAfhgBR5NkqxR_uhzjyJNHjFng3oyIaHRCbKi1CDIDxl-1T4cA036CLp28PZqgv6KrAxdBcJesvmZLWklHaDWLnAN4oZCZMY_S7qrsMC2ofoPEGAmLlDzH1Rb1pYPfw5wChSMX8r5DUl-n_xtwBK7lYQNgXtt97yGTe8WJPEjb1sidTnAHPp270K6Kr6tbFdVq4AGCeeFin3X3NLccyOjlKDX-ycg5Z2gVMnqxk9uwWnzhK2Y-LXSb-YLiW-yGV_5WCPeEC7ww-T9koCbD7IDX-dgBSQaSPsbFNRRkpyaR9ZPjT6nLh-Ic3eUie0oZOYBbm0oT3DknHUKwQcfHywRK2RqfJg93R_cpS4tIqcZ2kHOeQ4c3eHf2NamI2bTcdWBH63gS6dLX0RV4ycM2ux7qfdO9bGSOLX55lz3MN6knDCAM3UBtYAGfbg90skdG3yVC_oAry4gbfFfRaRfrUo-p9aByZKuSh7qzimCWrTSyhMk5S8KIKe-miwUtM6F8Fgju2NDi_bX_DVXKGj027jhkkpFLTsLFOmPuzGdHK7qKs7CIodwrj8L9wJHioJ_DYiJU1ahTvkU0RJyzkJs2Zsigk7uRV2nKMT_inp_FIXXmVUDrWgblkhsXz0-Ap79uvtPQa04X1zEh8oVCIMekyYzARQudxdKUwVjfXKMI4b-xt-xTcv8dTyUCwEvuNi7Z73rmLTScgoNrxcE-n4vNrXqjfT8r02ltW59aCR8J_6-SnZYJ9YlPdzwerBNyIxc8HaCAN9HDormTh9LSdVaSi4fWyN5QKn2FAxfmKdtvUqU6ORsxEFtafmYKWG5f9WhD7OA5lh2uWkp4P1EXHSLyABtoGScytIShGXszzo7bGxoSishED7mj-h60QnIVLWl-lDht_aLn-Ec6uElYg8BOgiHzy1MhYiBappEvgQAo6nhKjlYERGHLTaX1ncVet6ApYR_bfBcSTrRB6vb4qXtrxrOnqSHWCcTcK-SwnKMLzmzjIQJpIdUtBBuv9Hvh9YE-7m5ZOOuTi9IroUMXomvxky5PsRq6oPXKlw_jJnKWEZT3AXIc7CS4aMTxX_JR7-0eOosKt4grPVcdY17R_UP72-9Uc7bgVtcA1H8eLO-MlqWMPJDi0bWZSasB9r2uEK8z09Mc5wEO5wjIXkQVJAYYgZzuDJel0SokM7QDXFbqJFW3v3TVwgS6xDZVwev2_C-PEsfphIk-_E78whbwIrIzptr3oupU2W2gCbPVeSVjOc'
             console.log(recaptchaResponse)
 
-            if (!recaptchaResponse) {
-                alert("Please complete the reCAPTCHA.");
-                return;
-            }
+            // if (!recaptchaResponse) {
+            //     alert("Please complete the reCAPTCHA.");
+            //     return;
+            // }
 
             // Send the token to your Python server for verification
-            fetch('/verify-recaptcha', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({ recaptchaResponse })
-                // body: JSON.stringify({
-                //     recaptchaResponse: recaptchaResponse
-                // }),
-                // headers: {
-                //     "Content-type": "application/json; charset=UTF-8"
-                // }
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log("=========success============")
-                    console.log(data.success)
-                    if (data.success) {
-                        alert("reCAPTCHA verified successfully!");
-                        // Proceed with form submission or further actions
-                    } else {
-                        alert(`Verification failed: ${data.message}`);
-                    }
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    alert("An error occurred. Please try again later.");
-                });
+            // fetch('/verify-recaptcha', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            //     body: new URLSearchParams({ recaptchaResponse })
+            //     // body: JSON.stringify({
+            //     //     recaptchaResponse: recaptchaResponse
+            //     // }),
+            //     // headers: {
+            //     //     "Content-type": "application/json; charset=UTF-8"
+            //     // }
+            // })
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         console.log("=========success============")
+            //         console.log(data.success)
+            //         if (data.success) {
+            //             alert("reCAPTCHA verified successfully!");
+            //             // Proceed with form submission or further actions
+            //         } else {
+            //             alert(`Verification failed: ${data.message}`);
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.error("Error:", error);
+            //         alert("An error occurred. Please try again later.");
+            //     });
+
+
+            $.post("/verify-recaptcha", recaptchaResponse, (data, status) => {
+                console.log(data);
+            });
         }
 
     </script>

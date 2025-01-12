@@ -41,6 +41,8 @@ def verify_recaptcha():
         'secret': secret_key,
         'response': recaptcha_response
     }
+    print('=================payload===================', file=sys.stderr)
+    print(payload, file=sys.stderr)
     response = requests.post(google_verify_url, data=payload)
     verification = response.json()
     

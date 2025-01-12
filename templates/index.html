@@ -55,7 +55,7 @@
             //     });
 
 
-            $.post("/verify-recaptcha", recaptchaResponse, (data, status) => {
+            $.post("/verify-recaptcha", { 'recaptchaResponse': recaptchaResponse }, (data, status) => {
                 console.log(data);
             });
         }

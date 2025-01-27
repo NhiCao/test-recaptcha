@@ -1,5 +1,6 @@
 import requests
 import os
+import sys
 
 from flask import Flask, render_template, request, jsonify
 
@@ -13,7 +14,12 @@ def hello_world():
 
 @app.route('/verify-recaptcha', methods=['POST'])
 def verify_recaptcha():
-    recaptcha_response = request.form.get('g-recaptcha-response')
+    data = request.get_json()
+    recaptcha_response = data.get('g-recaptcha-response')
+    
+    print('=================recaptcha_response===================', file=sys.stderr)
+    print(recaptcha_response, file=sys.stderr)
+    print('====================================', file=sys.stderr)
 
     if not recaptcha_response:
         return jsonify({'success': False, 'message': 'Missing reCAPTCHA response.'}), 400

@@ -25,8 +25,8 @@
 
             fetch('/verify-recaptcha', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({ 'g-recaptcha-response': recaptchaResponse })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 'g-recaptcha-response': recaptchaResponse })
             })
                 .then(response => response.json())
                 .then(data => {
